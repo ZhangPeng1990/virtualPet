@@ -21,7 +21,8 @@ public class StartDoor {
 	
 	public static void main(String[] args) {
 		Pet pet = loadPet();
-		System.out.println(pet.getCreateTime());
+		System.out.println("您的电脑宠物" + pet.getName() + "(" + pet.getType().getDesc() + ")" + "已加载");
+		System.out.println(pet.getName() + "已经在你的电脑里生活了" + pet.getSurviveHours() + "小时");
 	}
 	
 	public static Pet loadPet(){
@@ -31,7 +32,7 @@ public class StartDoor {
 			pet = fileToPet(PET);
 			
 		}else{
-			System.out.print("请输入数字来选择要创建的宠物种类：");
+			System.out.print("请输入数字来选择要创建的电脑宠物种类：");
 			
 			LifeType[] types = LifeType.values();
 			for(LifeType lt : types){
@@ -43,6 +44,10 @@ public class StartDoor {
 			LifeType lt = LifeType.getLifeTypeByCode(num);
 			pet = new Pet();
 			pet.setType(lt);
+			System.out.println("您的电脑宠物 ：" + lt.getDesc() + "已经创建");
+			System.out.println("接下来为" + lt.getDesc() + "取个名字吧，输入后按回车键即可");
+			String in = getInput();
+			pet.setName(in);
 			serializePetToLocal(pet);
 		}
 		return pet;
@@ -148,5 +153,11 @@ public class StartDoor {
 		}
 		
 		return numP;
+	}
+	
+	public static String getInput(){
+		Scanner sc = new Scanner(System.in);
+		String in = sc.nextLine();
+		return in;
 	}
 }

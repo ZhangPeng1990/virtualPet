@@ -7,7 +7,7 @@ package virtualPet.enums;
  */
 public enum LifeType {
 	
-	People(1,"人类"),Gog(2,"狗");
+	People(1,"电脑人"),Gog(2,"电脑狗"),Cat(3,"电脑猫");
 	
 	private LifeType(int code, String desc){
 		this.code = code;

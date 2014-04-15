@@ -40,7 +40,4 @@ public class VirtualLife implements Serializable {
 	public int getSurviveHours() {
 		return surviveHours;
 	}
-	public void setSurviveHours(int surviveHours) {
-		this.surviveHours = surviveHours;
-	}
 }
