@@ -1,6 +1,7 @@
 package virtualPet.baseObject;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 import virtualPet.tools.MacAddress;
@@ -12,7 +13,7 @@ public class VirtualLife implements Serializable {
 	private String id;
 	private Date createTime;
 	private String birthPlace;//创建时的机器的Mac地址
-	private int surviveHours;//存活时间，小时数
+//	private int surviveHours;//存活时间，小时数
 	
 	public VirtualLife(){
 		this.birthPlace = MacAddress.getMacAddress();
@@ -37,7 +38,11 @@ public class VirtualLife implements Serializable {
 	public void setBirthPlace(String birthPlace) {
 		this.birthPlace = birthPlace;
 	}
-	public int getSurviveHours() {
-		return surviveHours;
+	public double getSurviveHours() {
+		Date now = new Date();
+		double hours = (double)(now.getTime() - this.getCreateTime().getTime())/3600000;
+		BigDecimal bg = new BigDecimal(hours);
+		double hour = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+		return hour;
 	}
 }
