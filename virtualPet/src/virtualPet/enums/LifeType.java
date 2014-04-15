@@ -29,4 +29,12 @@ public enum LifeType {
 		this.desc = desc;
 	}
 	
+	public static LifeType getLifeTypeByCode(int code){
+		LifeType[] types = LifeType.values();
+		for(LifeType lt : types){
+			if(lt.code == code)
+				return lt;
+		}
+		return null;
+	}
 }
