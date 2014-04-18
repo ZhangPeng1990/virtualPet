@@ -6,7 +6,7 @@ import java.util.Date;
 
 import virtualPet.tools.MacAddress;
 
-public class VirtualLife implements Serializable {
+public class VirtualLife implements Serializable, Runnable  {
 
 	private static final long serialVersionUID = 620223380493003533L;
 	
@@ -44,5 +44,10 @@ public class VirtualLife implements Serializable {
 		BigDecimal bg = new BigDecimal(hours);
 		double hour = bg.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
 		return hour;
+	}
+
+	@Override
+	public void run() {
+		
 	}
 }

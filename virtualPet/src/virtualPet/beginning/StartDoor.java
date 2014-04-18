@@ -20,10 +20,22 @@ public class StartDoor {
 	public static String PET = getDatePath() + MacAddress.getMacAddress() + ".out";
 	
 	public static void main(String[] args) {
+		doShutDownWork();
 		Pet pet = loadPet();
 		System.out.println("您的电脑宠物" + pet.getName() + "(" + pet.getType().getDesc() + ")" + "已加载");
 		System.out.println(pet.getName() + "已经在你的电脑里生活了" + pet.getSurviveHours() + "小时");
+		
 	}
+	
+	private static void doShutDownWork() {  
+        Runtime run=Runtime.getRuntime();//当前 Java 应用程序相关的运行时对象。  
+        run.addShutdownHook(new Thread(){ //注册新的虚拟机来关闭钩子  
+            @Override  
+            public void run() {  
+                System.out.println("程序结束调用");  
+            }  
+        });  
+    }
 	
 	public static Pet loadPet(){
 		Pet pet = null;
