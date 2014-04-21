@@ -1,5 +1,6 @@
 ﻿package virtualPet.enums;
 
+//zp git test
 public enum CmdCommand {
 
 	sndrec32(0,"sndrec32","打开录音机"),
