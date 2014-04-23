@@ -3,9 +3,8 @@
 //zp git test
 public enum CmdCommand {
 
-	sndrec32(0,"sndrec32","打开录音机"),
-	Nslookup(1,"Nslookup","IP地址侦测器"),
-	notepad(2,"notepad","打开记事本");
+	calc(0,"calc","打开计算器"),
+	notepad(1,"notepad","打开记事本");
 	
 	private int code;
 	private String command;
@@ -17,6 +16,15 @@ public enum CmdCommand {
 		this.desc = desc;
 	}
 
+	public static CmdCommand getByCode(int code){
+		for(CmdCommand c : CmdCommand.values()){
+			if(c.code == code){
+				return c;
+			}
+		}
+		return null;
+	}
+	
 	public int getCode() {
 		return code;
 	}

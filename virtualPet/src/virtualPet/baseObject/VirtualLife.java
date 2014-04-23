@@ -3,6 +3,7 @@ package virtualPet.baseObject;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Scanner;
 
 import virtualPet.tools.MacAddress;
 
@@ -49,5 +50,11 @@ public class VirtualLife implements Serializable, Runnable  {
 	@Override
 	public void run() {
 		
+	}
+	
+	public static String getInput(){
+		Scanner sc = new Scanner(System.in);
+		String in = sc.nextLine();
+		return in;
 	}
 }
