@@ -28,11 +28,16 @@ public class Pet extends VirtualLife{
 		this.type = type;
 	}
 	
+	@Override
+	public void run() {
+		talk(0);
+	}
+	
 	/**
 	 * 询问主人，如第一次询问则输出一些提示信息
 	 * @param time
 	 */
-	public void ask(int time){
+	public void talk(int time){
 		if(time == 0){
 			System.out.println(this.name + "竭诚为您服务请选择您要进行的操作：");
 			for(CmdCommand c : CmdCommand.values()){
@@ -40,10 +45,18 @@ public class Pet extends VirtualLife{
 			}
 		}
 		
+		listen();
+	}
+	
+	/**
+	 * 监听主人输入
+	 */
+	public void listen(){
 		String input = getInput();
 		if(input != null){
 			doThings(input);
 		}
+		talk(1);
 	}
 	
 	/**
@@ -61,11 +74,9 @@ public class Pet extends VirtualLife{
 			}
 		} catch (Exception e) {
 			System.out.println("输入不合法");
-			ask(1);
+			listen();
 		}
-		
 		OpenApplication.execCommand(cmd.getCommand());
-		ask(1);
 	}
 	
 }

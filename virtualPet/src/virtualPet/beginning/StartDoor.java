@@ -21,11 +21,12 @@ public class StartDoor {
 	
 	public static void main(String[] args) {
 		doShutDownWork();
+		
 		Pet pet = loadPet();
 		System.out.println("您的电脑宠物" + pet.getName() + "(" + pet.getType().getDesc() + ")" + "已加载");
 		System.out.println(pet.getName() + "已经在你的电脑里生活了" + pet.getSurviveHours() + "小时");
 		
-		pet.ask(0);
+		pet.run();
 	}
 	
 	private static void doShutDownWork() {  

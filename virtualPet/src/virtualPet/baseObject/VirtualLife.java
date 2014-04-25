@@ -49,7 +49,6 @@ public class VirtualLife implements Serializable, Runnable  {
 
 	@Override
 	public void run() {
-		
 	}
 	
 	public static String getInput(){
