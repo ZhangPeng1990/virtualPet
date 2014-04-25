@@ -7,11 +7,10 @@ import java.util.Scanner;
 
 import virtualPet.tools.MacAddress;
 
-public class VirtualLife implements Serializable, Runnable  {
+public class VirtualLife extends Thread implements Serializable{
 
 	private static final long serialVersionUID = 620223380493003533L;
 	
-	private String id;
 	private Date createTime;
 	private String birthPlace;//创建时的机器的Mac地址
 //	private int surviveHours;//存活时间，小时数
@@ -21,12 +20,6 @@ public class VirtualLife implements Serializable, Runnable  {
 		this.createTime = new Date();
 	}
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public Date getCreateTime() {
 		return createTime;
 	}
@@ -47,10 +40,6 @@ public class VirtualLife implements Serializable, Runnable  {
 		return hour;
 	}
 
-	@Override
-	public void run() {
-	}
-	
 	public static String getInput(){
 		Scanner sc = new Scanner(System.in);
 		String in = sc.nextLine();

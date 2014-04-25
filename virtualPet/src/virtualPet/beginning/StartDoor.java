@@ -21,12 +21,17 @@ public class StartDoor {
 	
 	public static void main(String[] args) {
 		doShutDownWork();
-		
 		Pet pet = loadPet();
-		System.out.println("您的电脑宠物" + pet.getName() + "(" + pet.getType().getDesc() + ")" + "已加载");
-		System.out.println(pet.getName() + "已经在你的电脑里生活了" + pet.getSurviveHours() + "小时");
+		System.out.println("您的智能宠物" + pet.getPetName() + "已苏醒");
+		System.out.println("Hello 主人，" + pet.getPetName() + "已经在你的电脑里待了" + pet.getSurviveHours() + "小时");
 		
-		pet.run();
+		pet.start();
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	private static void doShutDownWork() {  
@@ -34,7 +39,7 @@ public class StartDoor {
         run.addShutdownHook(new Thread(){ //注册新的虚拟机来关闭钩子  
             @Override  
             public void run() {  
-                System.out.println("程序结束调用");  
+                System.out.println("main方法运行结束,窗口将关闭");  
             }  
         });  
     }
@@ -42,7 +47,7 @@ public class StartDoor {
 	public static Pet loadPet(){
 		Pet pet = null;
 		if(havePet()){
-			System.out.println("正在加载您的电脑宠物... 请稍等...");
+			System.out.println("正在唤醒您的电脑宠物... 请稍等...");
 			pet = fileToPet(PET);
 			
 		}else{
@@ -61,7 +66,7 @@ public class StartDoor {
 			System.out.println("您的电脑宠物 ：" + lt.getDesc() + "已经创建");
 			System.out.println("接下来为" + lt.getDesc() + "取个名字吧，输入后按回车键即可");
 			String in = getInput();
-			pet.setName(in);
+			pet.setPetName(in);
 			serializePetToLocal(pet);
 		}
 		return pet;
