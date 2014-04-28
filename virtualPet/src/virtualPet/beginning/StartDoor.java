@@ -156,12 +156,9 @@ public class StartDoor {
 	
 	public static Integer getNum(){
 		
-		Scanner sc = new Scanner(System.in);
-		
-		String num = sc.nextLine();
 		Integer numP = null;
 		try {
-			numP = Integer.parseInt(num);
+			numP = Integer.parseInt(getInput());
 			LifeType lt = LifeType.getLifeTypeByCode(numP);
 			if(lt == null){
 				throw new NumberFormatException();
