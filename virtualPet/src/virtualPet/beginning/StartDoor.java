@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.List;
-import java.util.Scanner;
 
 import virtualPet.enums.LifeType;
 import virtualPet.lives.Pet;
+import virtualPet.tools.DataManage;
 import virtualPet.tools.FileTools;
 import virtualPet.tools.MacAddress;
 
@@ -172,8 +172,6 @@ public class StartDoor {
 	}
 	
 	public static String getInput(){
-		Scanner sc = new Scanner(System.in);
-		String in = sc.nextLine();
-		return in;
+		return DataManage.getInput();
 	}
 }

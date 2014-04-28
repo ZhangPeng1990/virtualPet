@@ -3,8 +3,8 @@ package virtualPet.baseObject;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.Scanner;
 
+import virtualPet.tools.DataManage;
 import virtualPet.tools.MacAddress;
 
 public class VirtualLife extends Thread implements Serializable{
@@ -40,9 +40,7 @@ public class VirtualLife extends Thread implements Serializable{
 		return hour;
 	}
 
-	public static String getInput(){
-		Scanner sc = new Scanner(System.in);
-		String in = sc.nextLine();
-		return in;
+	public String getInput(){
+		return DataManage.getInput();
 	}
 }
